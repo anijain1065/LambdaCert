@@ -4,6 +4,7 @@ package com.lambdaCert.project;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -83,6 +84,19 @@ public class POM extends BaseClass{
 			i--;
 		}
 		GoToSleep(1000);
+	}
+	
+	public boolean isAlertPresent() 
+	{ 
+	    try 
+	    { 
+	        driver.switchTo().alert(); 
+	        return true; 
+	    }
+	    catch (NoAlertPresentException Ex) 
+	    { 
+	        return false; 
+	    }
 	}
 	
 }

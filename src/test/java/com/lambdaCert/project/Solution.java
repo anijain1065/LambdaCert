@@ -127,7 +127,11 @@ public class Solution extends BaseClass
         robot.keyRelease(KeyEvent.VK_ENTER);
         
         GoToSleep(2000);
-        driver.switchTo().alert().accept();
+        if(pom.isAlertPresent()) {
+        	driver.switchTo().alert().accept();
+            GoToSleep(2000);
+        }
+        
         
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(POM.submit_btn)));
         driver.findElement(By.xpath(POM.submit_btn)).click();
